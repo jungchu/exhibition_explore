@@ -18,7 +18,7 @@
                 />
             </div>
 
-            <div> 用餐日期 </div>
+            <div> 用餐日期與時間 </div>
             <div id="bookDate">
                 <v-select
                     v-model="formatDate"
@@ -41,9 +41,52 @@
             </div>
 
             <div id="bookTime">
-                <div>可預約時段</div>
-                <v-btn>12:00</v-btn>
+                <div> 可預約時段 </div>
+                <v-btn @click="openDialog()"> 12:00 </v-btn>
 
+                <v-dialog
+                    v-model="isOpenDialog"
+                    fullscreen
+                >
+                    <v-card>
+                        <div id="infoContainer">
+                            <v-icon 
+                                icon="mdi-close" 
+                                @click="isOpenDialog = false"
+                            />
+
+                            <div id="infoContent">
+                                <div id="infoTitle"> 訂位聯絡資訊 </div>
+                                訂位人姓名
+                                <v-text-field variant="outlined"></v-text-field>
+                                訂位人手機號碼
+                                <v-text-field variant="outlined"></v-text-field>
+
+                                訂位人 Email
+                                <v-text-field variant="outlined"></v-text-field>
+                                備註
+                                <v-textarea 
+                                    variant="outlined"
+                                    rows="2"
+                                >
+
+                                </v-textarea>
+                                <v-checkbox label="將訂位人資訊儲存在此瀏覽器" />
+                                <v-checkbox label="按下確認訂位代表我已閱讀並同意服務條款與隱私權條款" />
+                                <div>
+                                    <v-btn
+                                        text="取消"
+                                        @click="isOpenDialog = false"
+                                    />
+                                    <v-btn
+                                        text="確認訂位"
+                                        @click="isOpenDialog = false"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </v-card>
+                </v-dialog>
             </div>
         </div>
     </div>
@@ -51,6 +94,7 @@
 <script setup>
 import { computed, ref, watch } from 'vue';
 import moment from 'moment';
+
 import Toolbar from './toolbar.vue';
 import { useBookingStore } from '../stores/booking';
 
@@ -88,11 +132,12 @@ import { useBookingStore } from '../stores/booking';
     ];
 
     let bookingInfo = ref({
-        adultNumber: 1,
+        adultNumber: 2,
         childNumber: 0,
         time: '12:00',
     });
 
+    // 用餐時間相關
     const today = computed(() => new Date());
     const getTomorrow = () => {
         const today = new Date();
@@ -125,6 +170,13 @@ import { useBookingStore } from '../stores/booking';
         return newDate.format(`YYYY/MM/DD ${dayMap[dddd]}`)
     };
 
+    // 訂位顧客資訊dialog
+    let isOpenDialog = ref(false);
+    const openDialog = () => {
+        isOpenDialog.value = true;
+    };
+
+
     watch(() => bookingInfo.value.adultNumber, (newValue) => {
         setAdultNumber(newValue);
     });
@@ -139,14 +191,20 @@ import { useBookingStore } from '../stores/booking';
 
 </script>
 <style lang='scss' scoped>
+@import '../assets/main.scss';
+
 #booking {
+    @include font-zh;
     display: flex;
     justify-content: center;
-    padding: 80px 0 0 0;
+    padding: 120px 0 0 0;
 
     #booking_contant {
         width: 600px;
+        padding: 10px;
         background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 15px black;
 
         #people_number {
             display: flex;
@@ -160,8 +218,46 @@ import { useBookingStore } from '../stores/booking';
             display: flex;
             justify-content: center;
         }
+
+        #bookTime {
+            .v-btn {
+                margin: 15px;
+            }
+        }
     }
 }
+
+
+#infoContainer {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 40px 0 30px 0;
+
+    .v-icon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+    }
+
+    #infoContent {
+        width: 650px;
+        padding: 20px 60px;
+        border: 1px solid rgb(131, 131, 131);
+        border-radius: 5px;
+
+        #infoTitle {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+    }
+}    
 
 .show {
     display: block;
@@ -175,5 +271,11 @@ import { useBookingStore } from '../stores/booking';
 #datePicker .v-picker-title,
 #datePicker .v-picker__header {
     display: none;
+}
+
+#people_number .v-select,
+#bookDate .v-select {
+    width: 250px;
+    margin: 15px;
 }
 </style>
