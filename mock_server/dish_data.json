@@ -1,0 +1,17 @@
+[
+    {
+        "name": "草莓焦糖鬆餅",
+        "image": "./src/assets/dish_1.jpg",
+        "description": "我是鬆餅"
+    },
+    {
+        "name": "蔓越莓優格碗",
+        "image": "./src/assets/dish_2.jpg",
+        "description": "我是蔓越莓優格碗"
+    },
+    {
+        "name": "凱薩沙拉",
+        "image": "./src/assets/dish_3.jpg",
+        "description": "我是凱薩沙拉"
+    }
+]

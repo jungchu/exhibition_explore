@@ -1,0 +1,51 @@
+
+// 此字體用於中文
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 200 to 900
+@mixin font-zh {
+    font-family: "Noto Serif TC", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+// 此字體用於英文
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+@mixin font-en {
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        'Fira Sans',
+        'Droid Sans',
+        'Helvetica Neue',
+        sans-serif;
+    font-size: 16px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(36, 36, 36);
+}
+
+#app {
+    margin: 0;
+    padding: 0;
+}
