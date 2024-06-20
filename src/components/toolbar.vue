@@ -33,6 +33,7 @@ const goToPage = (btn_name) => {
         '關於覓巷': 'about',
         '美味餐點': 'menu',
         '線上訂位': 'booking',
+        '聯絡我們': 'contact',
     };
 
     window.open(`http://localhost:5173/${pageMap[btn_name]}`, '_self');
