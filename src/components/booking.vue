@@ -75,6 +75,7 @@
                                     訂位人姓名 <span class="starSign"> * </span>
                                 </div>
                                 <v-text-field 
+                                    v-model="bookingInfo.name"
                                     variant="outlined"
                                     :rules="[rules.required, rules.counter]"
                                 />
@@ -95,6 +96,7 @@
                                         </template>
                                     </v-select>
                                     <v-text-field 
+                                        v-model="bookingInfo.phone"
                                         variant="outlined"
                                         :rules="[rules.required, rules.phone, rules.phoneLength]"
                                     />
@@ -102,18 +104,21 @@
 
                                 <div class="infoSubtitle"> Email </div>
                                 <v-text-field 
+                                    v-model="bookingInfo.email"
                                     variant="outlined"
                                     :rules="[rules.email]"
                                 />
 
                                 <div class="infoSubtitle"> 備註 </div>
                                 <v-textarea 
+                                    v-model="bookingInfo.note"
                                     variant="outlined"
                                     rows="2"
                                     :rules="[rules.counterTextarea]"
                                 />
 
                                 <v-checkbox 
+                                    v-model="bookingInfo.isSetLocalStorage"
                                     class="infoCheckbox"
                                     label="將訂位人資訊儲存在此瀏覽器" 
                                 />
@@ -126,12 +131,12 @@
                                     <v-btn
                                         class="cancelBtn"
                                         text="取消"
-                                        @click="isOpenDialog = false"
+                                        @click="cancel()"
                                     />
                                     <v-btn
                                         class="confirmBtn"
                                         text="確認訂位"
-                                        @click="isOpenDialog = false"
+                                        @click="confirm()"
                                     />
                                 </div>
                             </div>
@@ -150,8 +155,8 @@ import Toolbar from './toolbar.vue';
 import { useBookingStore } from '../stores/booking';
 import { get_country_code_ajax } from '../js/utils/data';
 
-    onMounted(() => {
-        getCountryCodeList();
+    onMounted(async() => {
+        await getCountryCodeList();
     });
 
     const bookStore = useBookingStore();
@@ -162,8 +167,12 @@ import { get_country_code_ajax } from '../js/utils/data';
         adultNumber: 2,
         childNumber: 0,
         time: '12:00',
-        bookingName: '',
-        countryCode: '+886'
+        name: '',
+        countryCode: '+886',
+        phone: '',
+        email: '',
+        note: '',
+        isSetLocalStorage: false
     });
 
     const adultNumberList = [
@@ -231,19 +240,71 @@ import { get_country_code_ajax } from '../js/utils/data';
     // 訂位顧客資訊dialog
     let isOpenDialog = ref(false);
     const openDialog = () => {
+        getContactInfo(); // 從 localStorage 取得聯絡人資訊
         isOpenDialog.value = true;
     };
+    const closeDialog = () => {
+        isOpenDialog.value = false;
+        bookingInfoInit(); // 初始化 bookingInfo 中的聯絡人資訊
+    };
 
+    const cancel = () => {
+        closeDialog();
+    };
+    const confirm = () => {
+        closeDialog();
+        setLocalStorage();
+    };
+
+    const bookingInfoInit = () => {
+        Object.assign(bookingInfo.value, {
+            name: '',
+            countryCode: '+886',
+            phone: '',
+            email: '',
+            note: '',
+            isSetLocalStorage: false
+        });
+    };
+
+    const setLocalStorage = () => {
+        const { name, countryCode, phone, email, isSetLocalStorage } = bookingInfo.value;
+        if (isSetLocalStorage) {
+            const contactInfo = {
+                name: name,
+                countryCode: countryCode,
+                phone: phone,
+                email: email,
+                isSetLocalStorage: isSetLocalStorage
+            };
+            localStorage.setItem('contactInfo', JSON.stringify(contactInfo));
+
+        } else {
+            const contactInfo = localStorage.getItem('contactInfo');
+            if (contactInfo) localStorage.removeItem('contactInfo');
+        }
+    };
+
+    const getContactInfo = () => {
+        const contactInfo = localStorage.getItem('contactInfo');
+        if (contactInfo) {
+            const parseContactInfo = JSON.parse(contactInfo);
+            Object.assign(bookingInfo.value, parseContactInfo);
+        }
+    };
+
+     // 手機區碼
     const countryCodeList = ref([]);
     const getCountryCodeList = async() => {
         countryCodeList.value = await get_country_code_ajax();
     };
+    
     // 輸入框驗證規則
     const rules = {
         required: value => !!value || '必填欄位',
         requiredCheckbox: value => !!value,
         counter: value => value.length <= 20 || '輸入文字請少於20個',
-        counterTextarea: value => value.length <= 150 || '輸入文字請少於150個',
+        counterTextarea: value => (!value || value.length <= 150) || '輸入文字請少於150個',
         email: value => {
             const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             return pattern.test(value) || 'e-mail 格式有誤'
