@@ -15,16 +15,12 @@
         preLoadImg();
     });
     const preLoadImg = () => {
+        const imgNameList = ['menu_background.jpg', 'menu.jpg', 'about_description.jpg'];
         setTimeout(() => {
-            const restaurant_1 = new Image()
-            restaurant_1.src = '/src/assets/restaurant_1.jpg';
-
-            const about_description = new Image()
-            about_description.src = '/src/assets/about_description.jpg';
-
-            const restaurant_2 = new Image()
-            restaurant_2.src = '/src/assets/restaurant_2.jpg';
-
+            imgNameList.forEach(imgName => {
+                const image = new Image();
+                image.src = `/src/assets/${imgName}`;
+            });
         }, 400);
     };
 </script>
