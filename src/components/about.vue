@@ -35,6 +35,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        height: 700px;
         
         .description_img {
             display: block; // 為了移除多餘空白

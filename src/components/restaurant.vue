@@ -18,6 +18,8 @@ import '../assets/main.scss'
 
 .restaurant_item{
     position: relative;
+    width: 100%;
+    height: 811px;
 
     .restaurant_image {
         display: block; // 為了移除多餘空白
