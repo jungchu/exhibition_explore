@@ -24,6 +24,7 @@ app.use(
 );
 
 const dish_data = require('./dish_data.json')
+const country_code = require('./country_code.json')
 
 app.use('/api/dish/?*', function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -34,7 +35,14 @@ app.use('/api/dish/?*', function (req, res) {
     res.send(dish_data);
 });
 
+app.use('/api/country_code/?*', function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Request-Method', '*');
+    res.setHeader('Access-Control-Request-Method', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
+    res.send(country_code);
+});
 
 app.listen(port,(err) => {
     if (err) {

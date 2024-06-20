@@ -1,0 +1,986 @@
+[
+    {
+        "title": "Afghanistan +93",
+        "value": "+93"
+    },
+    {
+        "title": "Åland Islands +358",
+        "value": "+358"
+    },
+    {
+        "title": "Albania +355",
+        "value": "+355"
+    },
+    {
+        "title": "Algeria +213",
+        "value": "+213"
+    },
+    {
+        "title": "American Samoa +1684",
+        "value": "+1684"
+    },
+    {
+        "title": "Andorra +376",
+        "value": "+376"
+    },
+    {
+        "title": "Angola +244",
+        "value": "+244"
+    },
+    {
+        "title": "Anguilla +1264",
+        "value": "+1264"
+    },
+    {
+        "title": "Antarctica +672",
+        "value": "+672"
+    },
+    {
+        "title": "Antigua and Barbuda +1268",
+        "value": "+1268"
+    },
+    {
+        "title": "Argentina +54",
+        "value": "+54"
+    },
+    {
+        "title": "Armenia +374",
+        "value": "+374"
+    },
+    {
+        "title": "Aruba +297",
+        "value": "+297"
+    },
+    {
+        "title": "Australia +61",
+        "value": "+61"
+    },
+    {
+        "title": "Austria +43",
+        "value": "+43"
+    },
+    {
+        "title": "Azerbaijan +994",
+        "value": "+994"
+    },
+    {
+        "title": "Bahamas +1242",
+        "value": "+1242"
+    },
+    {
+        "title": "Bahrain +973",
+        "value": "+973"
+    },
+    {
+        "title": "Bangladesh +880",
+        "value": "+880"
+    },
+    {
+        "title": "Barbados +1246",
+        "value": "+1246"
+    },
+    {
+        "title": "Belarus +375",
+        "value": "+375"
+    },
+    {
+        "title": "Belgium +32",
+        "value": "+32"
+    },
+    {
+        "title": "Belize +501",
+        "value": "+501"
+    },
+    {
+        "title": "Benin +229",
+        "value": "+229"
+    },
+    {
+        "title": "Bermuda +1441",
+        "value": "+1441"
+    },
+    {
+        "title": "Bhutan +975",
+        "value": "+975"
+    },
+    {
+        "title": "Bolivia, Plurinational State of bolivia +591",
+        "value": "+591"
+    },
+    {
+        "title": "Bosnia and Herzegovina +387",
+        "value": "+387"
+    },
+    {
+        "title": "Botswana +267",
+        "value": "+267"
+    },
+    {
+        "title": "Bouvet Island +47",
+        "value": "+47"
+    },
+    {
+        "title": "Brazil +55",
+        "value": "+55"
+    },
+    {
+        "title": "British Indian Ocean Territory +246",
+        "value": "+246"
+    },
+    {
+        "title": "Brunei Darussalam +673",
+        "value": "+673"
+    },
+    {
+        "title": "Bulgaria +359",
+        "value": "+359"
+    },
+    {
+        "title": "Burkina Faso +226",
+        "value": "+226"
+    },
+    {
+        "title": "Burundi +257",
+        "value": "+257"
+    },
+    {
+        "title": "Cambodia +855",
+        "value": "+855"
+    },
+    {
+        "title": "Cameroon +237",
+        "value": "+237"
+    },
+    {
+        "title": "Canada +1",
+        "value": "+1"
+    },
+    {
+        "title": "Cape Verde +238",
+        "value": "+238"
+    },
+    {
+        "title": "Cayman Islands + 345",
+        "value": "+ 345"
+    },
+    {
+        "title": "Central African Republic +236",
+        "value": "+236"
+    },
+    {
+        "title": "Chad +235",
+        "value": "+235"
+    },
+    {
+        "title": "Chile +56",
+        "value": "+56"
+    },
+    {
+        "title": "China +86",
+        "value": "+86"
+    },
+    {
+        "title": "Christmas Island +61",
+        "value": "+61"
+    },
+    {
+        "title": "Cocos (Keeling) Islands +61",
+        "value": "+61"
+    },
+    {
+        "title": "Colombia +57",
+        "value": "+57"
+    },
+    {
+        "title": "Comoros +269",
+        "value": "+269"
+    },
+    {
+        "title": "Congo +242",
+        "value": "+242"
+    },
+    {
+        "title": "Congo, The Democratic Republic of the Congo +243",
+        "value": "+243"
+    },
+    {
+        "title": "Cook Islands +682",
+        "value": "+682"
+    },
+    {
+        "title": "Costa Rica +506",
+        "value": "+506"
+    },
+    {
+        "title": "Cote d'Ivoire +225",
+        "value": "+225"
+    },
+    {
+        "title": "Croatia +385",
+        "value": "+385"
+    },
+    {
+        "title": "Cuba +53",
+        "value": "+53"
+    },
+    {
+        "title": "Cyprus +357",
+        "value": "+357"
+    },
+    {
+        "title": "Czech Republic +420",
+        "value": "+420"
+    },
+    {
+        "title": "Denmark +45",
+        "value": "+45"
+    },
+    {
+        "title": "Djibouti +253",
+        "value": "+253"
+    },
+    {
+        "title": "Dominica +1767",
+        "value": "+1767"
+    },
+    {
+        "title": "Dominican Republic +1849",
+        "value": "+1849"
+    },
+    {
+        "title": "Ecuador +593",
+        "value": "+593"
+    },
+    {
+        "title": "Egypt +20",
+        "value": "+20"
+    },
+    {
+        "title": "El Salvador +503",
+        "value": "+503"
+    },
+    {
+        "title": "Equatorial Guinea +240",
+        "value": "+240"
+    },
+    {
+        "title": "Eritrea +291",
+        "value": "+291"
+    },
+    {
+        "title": "Estonia +372",
+        "value": "+372"
+    },
+    {
+        "title": "Ethiopia +251",
+        "value": "+251"
+    },
+    {
+        "title": "Falkland Islands (Malvinas) +500",
+        "value": "+500"
+    },
+    {
+        "title": "Faroe Islands +298",
+        "value": "+298"
+    },
+    {
+        "title": "Fiji +679",
+        "value": "+679"
+    },
+    {
+        "title": "Finland +358",
+        "value": "+358"
+    },
+    {
+        "title": "France +33",
+        "value": "+33"
+    },
+    {
+        "title": "French Guiana +594",
+        "value": "+594"
+    },
+    {
+        "title": "French Polynesia +689",
+        "value": "+689"
+    },
+    {
+        "title": "French Southern Territories +262",
+        "value": "+262"
+    },
+    {
+        "title": "Gabon +241",
+        "value": "+241"
+    },
+    {
+        "title": "Gambia +220",
+        "value": "+220"
+    },
+    {
+        "title": "Georgia +995",
+        "value": "+995"
+    },
+    {
+        "title": "Germany +49",
+        "value": "+49"
+    },
+    {
+        "title": "Ghana +233",
+        "value": "+233"
+    },
+    {
+        "title": "Gibraltar +350",
+        "value": "+350"
+    },
+    {
+        "title": "Greece +30",
+        "value": "+30"
+    },
+    {
+        "title": "Greenland +299",
+        "value": "+299"
+    },
+    {
+        "title": "Grenada +1473",
+        "value": "+1473"
+    },
+    {
+        "title": "Guadeloupe +590",
+        "value": "+590"
+    },
+    {
+        "title": "Guam +1671",
+        "value": "+1671"
+    },
+    {
+        "title": "Guatemala +502",
+        "value": "+502"
+    },
+    {
+        "title": "Guernsey +44",
+        "value": "+44"
+    },
+    {
+        "title": "Guinea +224",
+        "value": "+224"
+    },
+    {
+        "title": "Guinea-Bissau +245",
+        "value": "+245"
+    },
+    {
+        "title": "Guyana +592",
+        "value": "+592"
+    },
+    {
+        "title": "Haiti +509",
+        "value": "+509"
+    },
+    {
+        "title": "Heard Island and Mcdonald Islands +0",
+        "value": "+0"
+    },
+    {
+        "title": "Holy See (Vatican City State) +379",
+        "value": "+379"
+    },
+    {
+        "title": "Honduras +504",
+        "value": "+504"
+    },
+    {
+        "title": "Hong Kong +852",
+        "value": "+852"
+    },
+    {
+        "title": "Hungary +36",
+        "value": "+36"
+    },
+    {
+        "title": "Iceland +354",
+        "value": "+354"
+    },
+    {
+        "title": "India +91",
+        "value": "+91"
+    },
+    {
+        "title": "Indonesia +62",
+        "value": "+62"
+    },
+    {
+        "title": "Iran, Islamic Republic of Persian Gulf +98",
+        "value": "+98"
+    },
+    {
+        "title": "Iraq +964",
+        "value": "+964"
+    },
+    {
+        "title": "Ireland +353",
+        "value": "+353"
+    },
+    {
+        "title": "Isle of Man +44",
+        "value": "+44"
+    },
+    {
+        "title": "Israel +972",
+        "value": "+972"
+    },
+    {
+        "title": "Italy +39",
+        "value": "+39"
+    },
+    {
+        "title": "Jamaica +1876",
+        "value": "+1876"
+    },
+    {
+        "title": "Japan +81",
+        "value": "+81"
+    },
+    {
+        "title": "Jersey +44",
+        "value": "+44"
+    },
+    {
+        "title": "Jordan +962",
+        "value": "+962"
+    },
+    {
+        "title": "Kazakhstan +7",
+        "value": "+7"
+    },
+    {
+        "title": "Kenya +254",
+        "value": "+254"
+    },
+    {
+        "title": "Kiribati +686",
+        "value": "+686"
+    },
+    {
+        "title": "Korea, Democratic People's Republic of Korea +850",
+        "value": "+850"
+    },
+    {
+        "title": "Korea, Republic of South Korea +82",
+        "value": "+82"
+    },
+    {
+        "title": "Kosovo +383",
+        "value": "+383"
+    },
+    {
+        "title": "Kuwait +965",
+        "value": "+965"
+    },
+    {
+        "title": "Kyrgyzstan +996",
+        "value": "+996"
+    },
+    {
+        "title": "Laos +856",
+        "value": "+856"
+    },
+    {
+        "title": "Latvia +371",
+        "value": "+371"
+    },
+    {
+        "title": "Lebanon +961",
+        "value": "+961"
+    },
+    {
+        "title": "Lesotho +266",
+        "value": "+266"
+    },
+    {
+        "title": "Liberia +231",
+        "value": "+231"
+    },
+    {
+        "title": "Libyan Arab Jamahiriya +218",
+        "value": "+218"
+    },
+    {
+        "title": "Liechtenstein +423",
+        "value": "+423"
+    },
+    {
+        "title": "Lithuania +370",
+        "value": "+370"
+    },
+    {
+        "title": "Luxembourg +352",
+        "value": "+352"
+    },
+    {
+        "title": "Macao +853",
+        "value": "+853"
+    },
+    {
+        "title": "Macedonia +389",
+        "value": "+389"
+    },
+    {
+        "title": "Madagascar +261",
+        "value": "+261"
+    },
+    {
+        "title": "Malawi +265",
+        "value": "+265"
+    },
+    {
+        "title": "Malaysia +60",
+        "value": "+60"
+    },
+    {
+        "title": "Maldives +960",
+        "value": "+960"
+    },
+    {
+        "title": "Mali +223",
+        "value": "+223"
+    },
+    {
+        "title": "Malta +356",
+        "value": "+356"
+    },
+    {
+        "title": "Marshall Islands +692",
+        "value": "+692"
+    },
+    {
+        "title": "Martinique +596",
+        "value": "+596"
+    },
+    {
+        "title": "Mauritania +222",
+        "value": "+222"
+    },
+    {
+        "title": "Mauritius +230",
+        "value": "+230"
+    },
+    {
+        "title": "Mayotte +262",
+        "value": "+262"
+    },
+    {
+        "title": "Mexico +52",
+        "value": "+52"
+    },
+    {
+        "title": "Micronesia, Federated States of Micronesia +691",
+        "value": "+691"
+    },
+    {
+        "title": "Moldova +373",
+        "value": "+373"
+    },
+    {
+        "title": "Monaco +377",
+        "value": "+377"
+    },
+    {
+        "title": "Mongolia +976",
+        "value": "+976"
+    },
+    {
+        "title": "Montenegro +382",
+        "value": "+382"
+    },
+    {
+        "title": "Montserrat +1664",
+        "value": "+1664"
+    },
+    {
+        "title": "Morocco +212",
+        "value": "+212"
+    },
+    {
+        "title": "Mozambique +258",
+        "value": "+258"
+    },
+    {
+        "title": "Myanmar +95",
+        "value": "+95"
+    },
+    {
+        "title": "Namibia +264",
+        "value": "+264"
+    },
+    {
+        "title": "Nauru +674",
+        "value": "+674"
+    },
+    {
+        "title": "Nepal +977",
+        "value": "+977"
+    },
+    {
+        "title": "Netherlands +31",
+        "value": "+31"
+    },
+    {
+        "title": "Netherlands Antilles +599",
+        "value": "+599"
+    },
+    {
+        "title": "New Caledonia +687",
+        "value": "+687"
+    },
+    {
+        "title": "New Zealand +64",
+        "value": "+64"
+    },
+    {
+        "title": "Nicaragua +505",
+        "value": "+505"
+    },
+    {
+        "title": "Niger +227",
+        "value": "+227"
+    },
+    {
+        "title": "Nigeria +234",
+        "value": "+234"
+    },
+    {
+        "title": "Niue +683",
+        "value": "+683"
+    },
+    {
+        "title": "Norfolk Island +672",
+        "value": "+672"
+    },
+    {
+        "title": "Northern Mariana Islands +1670",
+        "value": "+1670"
+    },
+    {
+        "title": "Norway +47",
+        "value": "+47"
+    },
+    {
+        "title": "Oman +968",
+        "value": "+968"
+    },
+    {
+        "title": "Pakistan +92",
+        "value": "+92"
+    },
+    {
+        "title": "Palau +680",
+        "value": "+680"
+    },
+    {
+        "title": "Palestinian Territory, Occupied +970",
+        "value": "+970"
+    },
+    {
+        "title": "Panama +507",
+        "value": "+507"
+    },
+    {
+        "title": "Papua New Guinea +675",
+        "value": "+675"
+    },
+    {
+        "title": "Paraguay +595",
+        "value": "+595"
+    },
+    {
+        "title": "Peru +51",
+        "value": "+51"
+    },
+    {
+        "title": "Philippines +63",
+        "value": "+63"
+    },
+    {
+        "title": "Pitcairn +64",
+        "value": "+64"
+    },
+    {
+        "title": "Poland +48",
+        "value": "+48"
+    },
+    {
+        "title": "Portugal +351",
+        "value": "+351"
+    },
+    {
+        "title": "Puerto Rico +1939",
+        "value": "+1939"
+    },
+    {
+        "title": "Qatar +974",
+        "value": "+974"
+    },
+    {
+        "title": "Romania +40",
+        "value": "+40"
+    },
+    {
+        "title": "Russia +7",
+        "value": "+7"
+    },
+    {
+        "title": "Rwanda +250",
+        "value": "+250"
+    },
+    {
+        "title": "Reunion +262",
+        "value": "+262"
+    },
+    {
+        "title": "Saint Barthelemy +590",
+        "value": "+590"
+    },
+    {
+        "title": "Saint Helena, Ascension and Tristan Da Cunha +290",
+        "value": "+290"
+    },
+    {
+        "title": "Saint Kitts and Nevis +1869",
+        "value": "+1869"
+    },
+    {
+        "title": "Saint Lucia +1758",
+        "value": "+1758"
+    },
+    {
+        "title": "Saint Martin +590",
+        "value": "+590"
+    },
+    {
+        "title": "Saint Pierre and Miquelon +508",
+        "value": "+508"
+    },
+    {
+        "title": "Saint Vincent and the Grenadines +1784",
+        "value": "+1784"
+    },
+    {
+        "title": "Samoa +685",
+        "value": "+685"
+    },
+    {
+        "title": "San Marino +378",
+        "value": "+378"
+    },
+    {
+        "title": "Sao Tome and Principe +239",
+        "value": "+239"
+    },
+    {
+        "title": "Saudi Arabia +966",
+        "value": "+966"
+    },
+    {
+        "title": "Senegal +221",
+        "value": "+221"
+    },
+    {
+        "title": "Serbia +381",
+        "value": "+381"
+    },
+    {
+        "title": "Seychelles +248",
+        "value": "+248"
+    },
+    {
+        "title": "Sierra Leone +232",
+        "value": "+232"
+    },
+    {
+        "title": "Singapore +65",
+        "value": "+65"
+    },
+    {
+        "title": "Slovakia +421",
+        "value": "+421"
+    },
+    {
+        "title": "Slovenia +386",
+        "value": "+386"
+    },
+    {
+        "title": "Solomon Islands +677",
+        "value": "+677"
+    },
+    {
+        "title": "Somalia +252",
+        "value": "+252"
+    },
+    {
+        "title": "South Africa +27",
+        "value": "+27"
+    },
+    {
+        "title": "South Sudan +211",
+        "value": "+211"
+    },
+    {
+        "title": "South Georgia and the South Sandwich Islands +500",
+        "value": "+500"
+    },
+    {
+        "title": "Spain +34",
+        "value": "+34"
+    },
+    {
+        "title": "Sri Lanka +94",
+        "value": "+94"
+    },
+    {
+        "title": "Sudan +249",
+        "value": "+249"
+    },
+    {
+        "title": "Suriname +597",
+        "value": "+597"
+    },
+    {
+        "title": "Svalbard and Jan Mayen +47",
+        "value": "+47"
+    },
+    {
+        "title": "Swaziland +268",
+        "value": "+268"
+    },
+    {
+        "title": "Sweden +46",
+        "value": "+46"
+    },
+    {
+        "title": "Switzerland +41",
+        "value": "+41"
+    },
+    {
+        "title": "Syrian Arab Republic +963",
+        "value": "+963"
+    },
+    {
+        "title": "Taiwan +886",
+        "value": "+886"
+    },
+    {
+        "title": "Tajikistan +992",
+        "value": "+992"
+    },
+    {
+        "title": "Tanzania, United Republic of Tanzania +255",
+        "value": "+255"
+    },
+    {
+        "title": "Thailand +66",
+        "value": "+66"
+    },
+    {
+        "title": "Timor-Leste +670",
+        "value": "+670"
+    },
+    {
+        "title": "Togo +228",
+        "value": "+228"
+    },
+    {
+        "title": "Tokelau +690",
+        "value": "+690"
+    },
+    {
+        "title": "Tonga +676",
+        "value": "+676"
+    },
+    {
+        "title": "Trinidad and Tobago +1868",
+        "value": "+1868"
+    },
+    {
+        "title": "Tunisia +216",
+        "value": "+216"
+    },
+    {
+        "title": "Turkey +90",
+        "value": "+90"
+    },
+    {
+        "title": "Turkmenistan +993",
+        "value": "+993"
+    },
+    {
+        "title": "Turks and Caicos Islands +1649",
+        "value": "+1649"
+    },
+    {
+        "title": "Tuvalu +688",
+        "value": "+688"
+    },
+    {
+        "title": "Uganda +256",
+        "value": "+256"
+    },
+    {
+        "title": "Ukraine +380",
+        "value": "+380"
+    },
+    {
+        "title": "United Arab Emirates +971",
+        "value": "+971"
+    },
+    {
+        "title": "United Kingdom +44",
+        "value": "+44"
+    },
+    {
+        "title": "United States +1",
+        "value": "+1"
+    },
+    {
+        "title": "Uruguay +598",
+        "value": "+598"
+    },
+    {
+        "title": "Uzbekistan +998",
+        "value": "+998"
+    },
+    {
+        "title": "Vanuatu +678",
+        "value": "+678"
+    },
+    {
+        "title": "Venezuela, Bolivarian Republic of Venezuela +58",
+        "value": "+58"
+    },
+    {
+        "title": "Vietnam +84",
+        "value": "+84"
+    },
+    {
+        "title": "Virgin Islands, British +1284",
+        "value": "+1284"
+    },
+    {
+        "title": "Virgin Islands, U.S. +1340",
+        "value": "+1340"
+    },
+    {
+        "title": "Wallis and Futuna +681",
+        "value": "+681"
+    },
+    {
+        "title": "Yemen +967",
+        "value": "+967"
+    },
+    {
+        "title": "Zambia +260",
+        "value": "+260"
+    },
+    {
+        "title": "Zimbabwe +263",
+        "value": "+263"
+    }
+]
