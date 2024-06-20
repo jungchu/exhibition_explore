@@ -110,6 +110,7 @@
                                 <v-textarea 
                                     variant="outlined"
                                     rows="2"
+                                    :rules="[rules.counterTextarea]"
                                 />
 
                                 <v-checkbox 
@@ -240,6 +241,7 @@ import { get_country_code_ajax } from '../js/utils/data';
     const rules = {
         required: value => !!value || '必填欄位',
         counter: value => value.length <= 20 || '輸入文字請少於20個',
+        counterTextarea: value => value.length <= 150 || '輸入文字請少於150個',
         email: value => {
             const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
             return pattern.test(value) || 'e-mail 格式有誤'
