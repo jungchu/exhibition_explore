@@ -1,9 +1,9 @@
 <template>
     <div id="booking">
         <Toolbar></Toolbar>
-        <div id="booking_contant">
-            <div> 用餐人數 </div>
-            <div id="people_number">
+        <div id="bookingContant">
+            <div class="bookingTitle"> 用餐人數 </div>
+            <div id="peopleNumber">
                 <v-select
                     v-model="bookingInfo.adultNumber"
                     :items="adultNumberList"
@@ -18,17 +18,17 @@
                 />
             </div>
 
-            <div> 用餐日期與時間 </div>
+            <div class="bookingTitle"> 用餐日期 </div>
             <div id="bookDate">
                 <v-select
                     v-model="formatDate"
                     @click="toggleDatePicker()"
                     readonly
                 />
-                <v-select
+                <!-- <v-select
                     v-model="bookingInfo.time"
                     :items="timeList"
-                />
+                /> -->
             </div>
             <div id="datePickerContainer">
                 <v-date-picker
@@ -41,8 +41,15 @@
             </div>
 
             <div id="bookTime">
-                <div> 可預約時段 </div>
-                <v-btn @click="openDialog()"> 12:00 </v-btn>
+                <div class="bookingTitle"> 可預約時段 </div>
+                <v-btn 
+                    v-for="(time, index) in timeList"
+                    :key="'timeBtn_' + index"
+                    @click="timeBtn(time)"
+                > 
+                    {{ time }}
+                </v-btn>
+
 
                 <v-dialog
                     v-model="isOpenDialog"
@@ -50,6 +57,8 @@
                 >
                     <v-card>
                         <div id="infoContainer">
+                            <img class="info_image" src="/src/assets/restaurant_1.jpg" alt="info image">
+
                             <v-icon 
                                 icon="mdi-close" 
                                 @click="isOpenDialog = false"
@@ -193,16 +202,7 @@ import { get_country_code_ajax } from '../js/utils/data';
         {title: '4 位小孩', value: 4},
         {title: '5 位小孩', value: 5}
     ];
-    const timeList = [
-        '11:00', '11:30',
-        '12:00', '12:30',
-        '13:00', '13:30',
-        '14:00', '14:30',
-        '17:00', '17:30',
-        '18:00', '18:30',
-        '19:00', '19:30',
-        '20:00', '20:30'
-    ];
+    const timeList = ['11:00', '12:00', '13:00', '14:00', '17:00', '18:00', '19:00', '20:00'];
 
     // 用餐時間相關
     const today = computed(() => new Date());
@@ -248,6 +248,10 @@ import { get_country_code_ajax } from '../js/utils/data';
         bookingInfoInit(); // 初始化 bookingInfo 中的聯絡人資訊
     };
 
+    const timeBtn = (time) => {
+        bookingInfo.value.time = time;
+        openDialog();
+    }
     const cancel = () => {
         closeDialog();
     };
@@ -338,14 +342,19 @@ import { get_country_code_ajax } from '../js/utils/data';
     justify-content: center;
     padding: 120px 0 0 0;
 
-    #booking_contant {
+    #bookingContant {
         width: 600px;
-        padding: 10px;
+        padding: 20px 20px 30px 20px;
         background-color: white;
         border-radius: 5px;
         box-shadow: 0 0 15px black;
 
-        #people_number {
+        .bookingTitle {
+            margin: 10px 0 0 15px;
+            font-size: 20px;
+        }
+
+        #peopleNumber {
             display: flex;
         }
 
@@ -360,7 +369,7 @@ import { get_country_code_ajax } from '../js/utils/data';
 
         #bookTime {
             .v-btn {
-                margin: 15px;
+                margin: 10px;
             }
         }
     }
@@ -379,6 +388,16 @@ import { get_country_code_ajax } from '../js/utils/data';
     width: 100%;
     padding: 40px 0 30px 0;
 
+    .info_image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        filter: contrast(0.5);
+    }
+
     .v-icon {
         position: absolute;
         top: 15px;
@@ -391,6 +410,8 @@ import { get_country_code_ajax } from '../js/utils/data';
         padding: 20px 60px;
         border: 1px solid rgb(131, 131, 131);
         border-radius: 5px;
+        z-index: 10;
+        background-color: white;
 
         #bookInfo {
             margin: 15px 0 25px 0;
@@ -465,7 +486,7 @@ import { get_country_code_ajax } from '../js/utils/data';
     display: none;
 }
 
-#people_number .v-select,
+#peopleNumber .v-select,
 #bookDate .v-select {
     width: 250px;
     margin: 15px;
