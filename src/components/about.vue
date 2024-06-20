@@ -17,17 +17,21 @@
             <div class="left_col">1</div>
             <div class="right_col">2</div>
         </div>
+
+        <Footer></Footer>
     </div>
 </template>
 <script setup>
     import Toolbar from './toolbar.vue';
+    import Footer from './footer.vue';
 </script>
 <style lang='scss' scoped>
 @import '../assets/main.scss';
 
 #about {
+    position: relative;
     width: 100%;
-    height: 690px;
+    min-height: 100vh;
     background-color: rgb(36, 36, 36);
 
     #description {
@@ -64,6 +68,11 @@
         justify-content: center;
         align-items: center;
         margin: 30px 0 0 0;
+    }
+
+    Footer {
+        position: absolute;
+        bottom: 0;
     }
 }
 

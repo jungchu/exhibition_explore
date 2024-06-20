@@ -37,10 +37,12 @@
                 </div>
             </div>
         </div>
+        <Footer></Footer>
     </div>
 </template>
 <script setup>
 import Toolbar from './toolbar.vue';
+import Footer from './footer.vue';
 
 const goToPage = (url) => {
     window.open(url, '_blank')
@@ -52,9 +54,9 @@ const goToPage = (url) => {
 
 #contact {
     @include font-zh;
+    position: relative;
     width: 100%;
-    height: 100%;
-    padding: 180px 0;
+    min-height: 100vh;
     color: white;
 
     #contactContent{
@@ -63,13 +65,10 @@ const goToPage = (url) => {
         justify-content: center;
         align-items: center;
         width: 100%;
+        min-height: calc(100vh - 20px); //因為footer高度大約為 20px
 
         #contactTitle {
             font-size: 28px;
-
-            #contactTitleEn {
-                // @include font-en;
-            }
         }
 
         #contactHour {
@@ -121,6 +120,11 @@ const goToPage = (url) => {
             margin-bottom: 5px;
             font-size: 20px;
         }
+    }
+
+    Footer {
+        position: absolute;
+        bottom: 0;
     }
 }
 

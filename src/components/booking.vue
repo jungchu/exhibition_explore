@@ -157,6 +157,7 @@
                 </v-dialog>
             </div>
         </div>
+        <Footer></Footer>
     </div>
 </template>
 <script setup>
@@ -164,6 +165,7 @@ import { computed, onMounted, ref, watch } from 'vue';
 import moment from 'moment';
 
 import Toolbar from './toolbar.vue';
+import Footer from './footer.vue';
 import { useBookingStore } from '../stores/booking';
 import { get_country_code_ajax } from '../js/utils/data';
 
@@ -342,13 +344,19 @@ import { get_country_code_ajax } from '../js/utils/data';
 
 #booking {
     @include font-zh;
+    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width:100%;
+    min-height: 100vh;
     padding: 120px 0 0 0;
 
     #bookingContant {
         width: 600px;
         padding: 20px 20px 30px 20px;
+        margin-bottom: 25px;
         background-color: white;
         border-radius: 5px;
         box-shadow: 0 0 15px black;
@@ -382,6 +390,11 @@ import { get_country_code_ajax } from '../js/utils/data';
                 font-size: 13px;
             }
         }
+    }
+
+    Footer {
+        position: absolute;
+        bottom: 0;
     }
 }
 

@@ -19,12 +19,15 @@
                 <img class="menu_img" src="/src/assets/menu.png" alt="menu">
             </div>
         </div>
+
+        <Footer></Footer>
     </div>
 </template>
 
 <script setup>
     import Toolbar from './toolbar.vue';
     import Title from './title.vue';
+    import Footer from './footer.vue';
 </script>
 
 <style lang='scss' scoped>
@@ -34,6 +37,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    min-height: 100vh;
     height: 960px;
     background-color: rgb(36, 36, 36);
 
@@ -63,6 +67,11 @@
 
     .menu_img{
         width: 800px;
+    }
+
+    Footer {
+        position: absolute;
+        bottom: 0;
     }
 }
 </style>
