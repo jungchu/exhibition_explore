@@ -120,6 +120,7 @@
                                 <v-checkbox 
                                     class="infoCheckbox"
                                     label="按下確認訂位代表我已閱讀並同意服務條款與隱私權條款" 
+                                    :rules="[rules.requiredCheckbox]"
                                 />
                                 <div class="infoBtn">
                                     <v-btn
@@ -240,6 +241,7 @@ import { get_country_code_ajax } from '../js/utils/data';
     // 輸入框驗證規則
     const rules = {
         required: value => !!value || '必填欄位',
+        requiredCheckbox: value => !!value,
         counter: value => value.length <= 20 || '輸入文字請少於20個',
         counterTextarea: value => value.length <= 150 || '輸入文字請少於150個',
         email: value => {
