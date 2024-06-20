@@ -56,29 +56,78 @@
                             />
 
                             <div id="infoContent">
+                                <div id="bookInfo">
+                                    <div class="bookInfoTitle"> 訂位日期與時間 </div>
+                                    <div class="bookInfoText"> {{ `${formatDate}&nbsp;&nbsp;&nbsp;${bookingInfo.time}` }} </div>
+                                    <div class="bookInfoTitle"> 位數 </div>
+                                    <div class="bookInfoText"> 
+                                        <div v-if="bookingInfo.adultNumber">
+                                            {{ bookingInfo.adultNumber }} 位大人 
+                                        </div>
+                                        <div v-if="bookingInfo.childNumber">
+                                            {{ bookingInfo.childNumber }} 位小孩 
+                                        </div>
+                                    </div>
+                                </div>
                                 <div id="infoTitle"> 訂位聯絡資訊 </div>
-                                訂位人姓名
-                                <v-text-field variant="outlined"></v-text-field>
-                                訂位人手機號碼
-                                <v-text-field variant="outlined"></v-text-field>
+                                
+                                <div class="infoSubtitle"> 
+                                    訂位人姓名 <span class="starSign"> * </span>
+                                </div>
+                                <v-text-field 
+                                    variant="outlined"
+                                    :rules="[rules.required, rules.counter]"
+                                />
 
-                                訂位人 Email
-                                <v-text-field variant="outlined"></v-text-field>
-                                備註
+                                <div class="infoSubtitle"> 
+                                    手機號碼  <span class="starSign"> * </span>
+                                </div>
+                                <div id="infoPhone">
+                                    <v-select
+                                        v-model="bookingInfo.countryCode"
+                                        :items="countryCodeList"
+                                        item-title="title"
+                                        item-value="value"
+                                        variant="outlined"
+                                    >
+                                        <template v-slot:selection="data" >
+                                            {{ data.item.value }}
+                                        </template>
+                                    </v-select>
+                                    <v-text-field 
+                                        variant="outlined"
+                                        :rules="[rules.required, rules.phone, rules.phoneLength]"
+                                    />
+                                </div>
+
+                                <div class="infoSubtitle"> Email </div>
+                                <v-text-field 
+                                    variant="outlined"
+                                    :rules="[rules.email]"
+                                />
+
+                                <div class="infoSubtitle"> 備註 </div>
                                 <v-textarea 
                                     variant="outlined"
                                     rows="2"
-                                >
+                                />
 
-                                </v-textarea>
-                                <v-checkbox label="將訂位人資訊儲存在此瀏覽器" />
-                                <v-checkbox label="按下確認訂位代表我已閱讀並同意服務條款與隱私權條款" />
-                                <div>
+                                <v-checkbox 
+                                    class="infoCheckbox"
+                                    label="將訂位人資訊儲存在此瀏覽器" 
+                                />
+                                <v-checkbox 
+                                    class="infoCheckbox"
+                                    label="按下確認訂位代表我已閱讀並同意服務條款與隱私權條款" 
+                                />
+                                <div class="infoBtn">
                                     <v-btn
+                                        class="cancelBtn"
                                         text="取消"
                                         @click="isOpenDialog = false"
                                     />
                                     <v-btn
+                                        class="confirmBtn"
                                         text="確認訂位"
                                         @click="isOpenDialog = false"
                                     />
@@ -92,15 +141,28 @@
     </div>
 </template>
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import moment from 'moment';
 
 import Toolbar from './toolbar.vue';
 import { useBookingStore } from '../stores/booking';
+import { get_country_code_ajax } from '../js/utils/data';
+
+    onMounted(() => {
+        getCountryCodeList();
+    });
 
     const bookStore = useBookingStore();
     const setAdultNumber = bookStore.setAdultNumber;
     const setChildNumber = bookStore.setChildNumber;
+
+    let bookingInfo = ref({
+        adultNumber: 2,
+        childNumber: 0,
+        time: '12:00',
+        bookingName: '',
+        countryCode: '+886'
+    });
 
     const adultNumberList = [
         {title: '1 位大人', value: 1},
@@ -130,12 +192,6 @@ import { useBookingStore } from '../stores/booking';
         '19:00', '19:30',
         '20:00', '20:30'
     ];
-
-    let bookingInfo = ref({
-        adultNumber: 2,
-        childNumber: 0,
-        time: '12:00',
-    });
 
     // 用餐時間相關
     const today = computed(() => new Date());
@@ -176,6 +232,24 @@ import { useBookingStore } from '../stores/booking';
         isOpenDialog.value = true;
     };
 
+    const countryCodeList = ref([]);
+    const getCountryCodeList = async() => {
+        countryCodeList.value = await get_country_code_ajax();
+    };
+    // 輸入框驗證規則
+    const rules = {
+        required: value => !!value || '必填欄位',
+        counter: value => value.length <= 20 || '輸入文字請少於20個',
+        email: value => {
+            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return pattern.test(value) || 'e-mail 格式有誤'
+        },
+        phone: value => {
+            const pattern = /^09\d{2}-?\d{3}-?\d{3}$|^9\d{2}-?\d{3}-?\d{3}$/
+            return pattern.test(value) || '手機格式有誤'
+        },
+        phoneLength: value => (9 <= value.length && value.length <= 10) || '手機格式有誤',
+    };
 
     watch(() => bookingInfo.value.adultNumber, (newValue) => {
         setAdultNumber(newValue);
@@ -229,6 +303,7 @@ import { useBookingStore } from '../stores/booking';
 
 
 #infoContainer {
+    @include font-zh;
     position: relative;
 
     display: flex;
@@ -252,9 +327,61 @@ import { useBookingStore } from '../stores/booking';
         border: 1px solid rgb(131, 131, 131);
         border-radius: 5px;
 
+        #bookInfo {
+            margin: 15px 0 25px 0;
+
+            .bookInfoTitle {
+                font-weight: 600;
+            }
+
+            .bookInfoText {
+                display: flex;
+                margin-bottom: 5px;
+                color: rgb(90, 90, 90);
+
+                div {
+                    margin-right: 20px;
+                }
+            }
+        }
+
         #infoTitle {
             margin-bottom: 15px;
             font-size: 22px;
+            font-weight: 600;
+        }
+
+        .infoSubtitle {
+            margin-bottom: 5px;
+            .starSign {
+                color: red;
+            }
+        }
+        
+        .infoCheckbox {
+            max-height: 40px;
+        }
+
+        .infoBtn {
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+
+            .v-btn {
+                margin: 0 30px;
+            }
+
+            .cancelBtn {
+                background-color: rgb(226, 226, 226);
+            }
+
+            .confirmBtn {
+                background-color: rgb(231, 184, 122);
+            }
+        }
+
+        #infoPhone {
+            display: flex;
         }
     }
 }    
@@ -266,7 +393,7 @@ import { useBookingStore } from '../stores/booking';
     display: none;
 }
 </style>
-<style>
+<style lang='scss'>
 /* 修改 vuetify component 的 css 要放在沒有 scoped 的 <script> */
 #datePicker .v-picker-title,
 #datePicker .v-picker__header {
@@ -278,4 +405,14 @@ import { useBookingStore } from '../stores/booking';
     width: 250px;
     margin: 15px;
 }
+#infoPhone .v-select{
+    max-width: 100px;
+    margin-right: 10px;
+}
+
+
+#infoContent .v-messages__message {
+    text-align: end;
+}
+
 </style>
