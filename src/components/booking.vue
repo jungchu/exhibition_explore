@@ -245,7 +245,6 @@ import { get_country_code_ajax } from '../js/utils/data';
     };
     const closeDialog = () => {
         isOpenDialog.value = false;
-        bookingInfoInit(); // 初始化 bookingInfo 中的聯絡人資訊
     };
 
     const timeBtn = (time) => {
@@ -254,10 +253,12 @@ import { get_country_code_ajax } from '../js/utils/data';
     }
     const cancel = () => {
         closeDialog();
+        bookingInfoInit(); // 初始化 bookingInfo 中的聯絡人資訊
     };
     const confirm = () => {
-        closeDialog();
         setLocalStorage();
+        bookingInfoInit(); // 初始化 bookingInfo 中的聯絡人資訊
+        closeDialog();
     };
 
     const bookingInfoInit = () => {
