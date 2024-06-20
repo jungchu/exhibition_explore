@@ -49,6 +49,9 @@
                 > 
                     {{ time }}
                 </v-btn>
+                <div class="bookNoteText">
+                    <div> 若訂位人數為 9 位以上，請來電預約，預約電話：XXXX-XXXX </div>
+                </div>
 
 
                 <v-dialog
@@ -351,7 +354,7 @@ import { get_country_code_ajax } from '../js/utils/data';
         box-shadow: 0 0 15px black;
 
         .bookingTitle {
-            margin: 10px 0 0 15px;
+            margin: 5px 0 0 15px;
             font-size: 20px;
         }
 
@@ -371,6 +374,12 @@ import { get_country_code_ajax } from '../js/utils/data';
         #bookTime {
             .v-btn {
                 margin: 10px;
+                background-color: rgba(224, 197, 143, .7);
+            }
+
+            .bookNoteText {
+                margin: 20px 0 0 10px;
+                font-size: 13px;
             }
         }
     }
