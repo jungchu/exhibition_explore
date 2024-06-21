@@ -56,7 +56,7 @@ const goToPage = (url) => {
     @include font-zh;
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 20px); //因為footer高度大約為 20px
     color: white;
 
     #contactContent{
@@ -68,7 +68,11 @@ const goToPage = (url) => {
         min-height: calc(100vh - 20px); //因為footer高度大約為 20px
 
         #contactTitle {
+            width: 300px;
+            padding-top: 30px;
             font-size: 28px;
+            text-align: center;
+            border-top: 1px solid white;
         }
 
         #contactHour {
@@ -83,7 +87,11 @@ const goToPage = (url) => {
 
         #contactMedia {
             display: flex;
+            justify-content: center;
+            width: 300px;
             margin: 15px 0;
+            padding-top: 30px;
+            border-top: 1px solid white;
 
             .v-icon {
                 cursor: pointer;

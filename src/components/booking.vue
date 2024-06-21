@@ -1,165 +1,169 @@
 <template>
-    <div id="booking">
+    <div>
         <Toolbar></Toolbar>
-        <div id="bookingContant">
-            <div class="bookingTitle"> 用餐人數 </div>
-            <div id="peopleNumber">
-                <v-select
-                    v-model="bookingInfo.adultNumber"
-                    :items="adultNumberList"
-                    item-title="title"
-                    item-value="value"
-                />
-                <v-select
-                    v-model="bookingInfo.childNumber"
-                    :items="childNumberList"
-                    item-title="title"
-                    item-value="value"
-                />
-            </div>
 
-            <div class="bookingTitle"> 用餐日期 </div>
-            <div id="bookDate">
-                <v-select
-                    v-model="formatDate"
-                    @click="toggleDatePicker()"
-                    readonly
-                />
-                <!-- <v-select
-                    v-model="bookingInfo.time"
-                    :items="timeList"
-                /> -->
-            </div>
-            <div id="datePickerContainer">
-                <v-date-picker
-                    id="datePicker"
-                    v-model="dateFromPicker"
-                    show-adjacent-months
-                    :class="isShowDatePicker ? 'show' : 'noshow'"
-                    :allowed-dates="allowedDates"
-                />
-            </div>
-
-            <div id="bookTime">
-                <div class="bookingTitle"> 可預約時段 </div>
-                <v-btn 
-                    v-for="(time, index) in timeList"
-                    :key="'timeBtn_' + index"
-                    @click="timeBtn(time)"
-                > 
-                    {{ time }}
-                </v-btn>
-                <div class="bookNoteText">
-                    <div> 若訂位人數為 9 位以上，請來電預約，預約電話：XXXX-XXXX </div>
+        <div id="booking">
+            <div id="bookingContant">
+                <div class="bookingTitle"> 用餐人數 </div>
+                <div id="peopleNumber">
+                    <v-select
+                        v-model="bookingInfo.adultNumber"
+                        :items="adultNumberList"
+                        item-title="title"
+                        item-value="value"
+                    />
+                    <v-select
+                        v-model="bookingInfo.childNumber"
+                        :items="childNumberList"
+                        item-title="title"
+                        item-value="value"
+                    />
                 </div>
 
+                <div class="bookingTitle"> 用餐日期 </div>
+                <div id="bookDate">
+                    <v-select
+                        v-model="formatDate"
+                        @click="toggleDatePicker()"
+                        readonly
+                    />
+                    <!-- <v-select
+                        v-model="bookingInfo.time"
+                        :items="timeList"
+                    /> -->
+                </div>
+                <div id="datePickerContainer">
+                    <v-date-picker
+                        id="datePicker"
+                        v-model="dateFromPicker"
+                        show-adjacent-months
+                        :class="isShowDatePicker ? 'show' : 'noshow'"
+                        :allowed-dates="allowedDates"
+                    />
+                </div>
 
-                <v-dialog
-                    v-model="isOpenDialog"
-                    fullscreen
-                >
-                    <v-card>
-                        <v-form 
-                            id="infoContainer"
-                            ref="infoForm"
-                        >
-                            <img class="info_image" src="/src/assets/restaurant_1.jpg" alt="info image">
+                <div id="bookTime">
+                    <div class="bookingTitle"> 可預約時段 </div>
+                    <v-btn 
+                        v-for="(time, index) in timeList"
+                        :key="'timeBtn_' + index"
+                        @click="timeBtn(time)"
+                    > 
+                        {{ time }}
+                    </v-btn>
+                    <div class="bookNoteText">
+                        <div> 若訂位人數為 9 位以上，請來電預約，預約電話：XXXX-XXXX </div>
+                    </div>
 
-                            <v-icon 
-                                icon="mdi-close" 
-                                @click="isOpenDialog = false"
-                            />
 
-                            <div id="infoContent">
-                                <div id="bookInfo">
-                                    <div class="bookInfoTitle"> 訂位日期與時間 </div>
-                                    <div class="bookInfoText"> {{ `${formatDate}&nbsp;&nbsp;&nbsp;${bookingInfo.time}` }} </div>
-                                    <div class="bookInfoTitle"> 位數 </div>
-                                    <div class="bookInfoText"> 
-                                        <div v-if="bookingInfo.adultNumber">
-                                            {{ bookingInfo.adultNumber }} 位大人 
-                                        </div>
-                                        <div v-if="bookingInfo.childNumber">
-                                            {{ bookingInfo.childNumber }} 位小孩 
+                    <v-dialog
+                        v-model="isOpenDialog"
+                        fullscreen
+                    >
+                        <v-card>
+                            <v-form 
+                                id="infoContainer"
+                                ref="infoForm"
+                            >
+                                <img class="info_image" src="/src/assets/restaurant_1.jpg" alt="info image">
+
+                                <v-icon 
+                                    icon="mdi-close" 
+                                    @click="isOpenDialog = false"
+                                />
+
+                                <div id="infoContent">
+                                    <div id="bookInfo">
+                                        <div class="bookInfoTitle"> 訂位日期與時間 </div>
+                                        <div class="bookInfoText"> {{ `${formatDate}&nbsp;&nbsp;&nbsp;${bookingInfo.time}` }} </div>
+                                        <div class="bookInfoTitle"> 位數 </div>
+                                        <div class="bookInfoText"> 
+                                            <div v-if="bookingInfo.adultNumber">
+                                                {{ bookingInfo.adultNumber }} 位大人 
+                                            </div>
+                                            <div v-if="bookingInfo.childNumber">
+                                                {{ bookingInfo.childNumber }} 位小孩 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div id="infoTitle"> 訂位聯絡資訊 </div>
-                                
-                                <div class="infoSubtitle"> 
-                                    訂位人姓名 <span class="starSign"> * </span>
-                                </div>
-                                <v-text-field 
-                                    v-model="bookingInfo.name"
-                                    variant="outlined"
-                                    :rules="[rules.required, rules.counter]"
-                                />
-
-                                <div class="infoSubtitle"> 
-                                    手機號碼  <span class="starSign"> * </span>
-                                </div>
-                                <div id="infoPhone">
-                                    <v-select
-                                        v-model="bookingInfo.countryCode"
-                                        :items="countryCodeList"
-                                        item-title="title"
-                                        item-value="value"
-                                        variant="outlined"
-                                    >
-                                        <template v-slot:selection="data" >
-                                            {{ data.item.value }}
-                                        </template>
-                                    </v-select>
+                                    <div id="infoTitle"> 訂位聯絡資訊 </div>
+                                    
+                                    <div class="infoSubtitle"> 
+                                        訂位人姓名 <span class="starSign"> * </span>
+                                    </div>
                                     <v-text-field 
-                                        v-model="bookingInfo.phone"
+                                        v-model="bookingInfo.name"
                                         variant="outlined"
-                                        :rules="[rules.required, rules.phone, rules.phoneLength]"
+                                        :rules="[rules.required, rules.counter]"
                                     />
+
+                                    <div class="infoSubtitle"> 
+                                        手機號碼  <span class="starSign"> * </span>
+                                    </div>
+                                    <div id="infoPhone">
+                                        <v-select
+                                            v-model="bookingInfo.countryCode"
+                                            :items="countryCodeList"
+                                            item-title="title"
+                                            item-value="value"
+                                            variant="outlined"
+                                        >
+                                            <template v-slot:selection="data" >
+                                                {{ data.item.value }}
+                                            </template>
+                                        </v-select>
+                                        <v-text-field 
+                                            v-model="bookingInfo.phone"
+                                            variant="outlined"
+                                            :rules="[rules.required, rules.phone, rules.phoneLength]"
+                                        />
+                                    </div>
+
+                                    <div class="infoSubtitle"> Email </div>
+                                    <v-text-field 
+                                        v-model="bookingInfo.email"
+                                        variant="outlined"
+                                        :rules="[rules.email]"
+                                    />
+
+                                    <div class="infoSubtitle"> 備註 </div>
+                                    <v-textarea 
+                                        v-model="bookingInfo.note"
+                                        variant="outlined"
+                                        rows="2"
+                                        :rules="[rules.counterTextarea]"
+                                    />
+
+                                    <v-checkbox 
+                                        v-model="bookingInfo.isSetLocalStorage"
+                                        class="infoCheckbox"
+                                        label="將訂位人資訊儲存在此瀏覽器" 
+                                    />
+                                    <v-checkbox 
+                                        class="infoCheckbox"
+                                        label="按下確認訂位代表我已閱讀並同意服務條款與隱私權條款" 
+                                        :rules="[rules.requiredCheckbox]"
+                                    />
+                                    <div class="infoBtn">
+                                        <v-btn
+                                            class="cancelBtn"
+                                            text="取消"
+                                            @click="cancel()"
+                                        />
+                                        <v-btn
+                                            class="confirmBtn"
+                                            text="確認訂位"
+                                            @click="confirm()"
+                                        />
+                                    </div>
                                 </div>
-
-                                <div class="infoSubtitle"> Email </div>
-                                <v-text-field 
-                                    v-model="bookingInfo.email"
-                                    variant="outlined"
-                                    :rules="[rules.email]"
-                                />
-
-                                <div class="infoSubtitle"> 備註 </div>
-                                <v-textarea 
-                                    v-model="bookingInfo.note"
-                                    variant="outlined"
-                                    rows="2"
-                                    :rules="[rules.counterTextarea]"
-                                />
-
-                                <v-checkbox 
-                                    v-model="bookingInfo.isSetLocalStorage"
-                                    class="infoCheckbox"
-                                    label="將訂位人資訊儲存在此瀏覽器" 
-                                />
-                                <v-checkbox 
-                                    class="infoCheckbox"
-                                    label="按下確認訂位代表我已閱讀並同意服務條款與隱私權條款" 
-                                    :rules="[rules.requiredCheckbox]"
-                                />
-                                <div class="infoBtn">
-                                    <v-btn
-                                        class="cancelBtn"
-                                        text="取消"
-                                        @click="cancel()"
-                                    />
-                                    <v-btn
-                                        class="confirmBtn"
-                                        text="確認訂位"
-                                        @click="confirm()"
-                                    />
-                                </div>
-                            </div>
-                        </v-form>
-                    </v-card>
-                </v-dialog>
+                            </v-form>
+                        </v-card>
+                    </v-dialog>
+                </div>
             </div>
         </div>
+
         <Footer></Footer>
     </div>
 </template>
@@ -360,7 +364,7 @@ import { get_country_code_ajax } from '../js/utils/data';
     justify-content: center;
     align-items: center;
     width:100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 20px); //因為footer高度大約為 20px
     padding: 120px 0 0 0;
 
     #bookingContant {
@@ -401,13 +405,7 @@ import { get_country_code_ajax } from '../js/utils/data';
             }
         }
     }
-
-    Footer {
-        position: absolute;
-        bottom: 0;
-    }
 }
-
 
 #infoContainer {
     @include font-zh;

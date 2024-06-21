@@ -1,11 +1,9 @@
 <template>
-    <div>
-        <div class="restaurant_item">
-            <img class="restaurant_image" src="/src/assets/restaurant_1.jpg" alt="restaurant圖片">
-            <div class="restaurant_text"> 
-                <div class="restaurant_text_1"> 覓巷 </div>
-                <div class="restaurant_text_2"> MI XIANG </div>
-            </div>
+    <div class="restaurant_item">
+        <img class="restaurant_image" src="/src/assets/restaurant_1.jpg" alt="restaurant圖片">
+        <div class="restaurant_text"> 
+            <div class="restaurant_text_1"> 覓巷 </div>
+            <div class="restaurant_text_2"> MI XIANG </div>
         </div>
     </div>
 </template>
@@ -19,11 +17,11 @@ import '../assets/main.scss'
 .restaurant_item{
     position: relative;
     width: 100%;
-    height: 811px;
 
     .restaurant_image {
         display: block; // 為了移除多餘空白
         width: 100%;
+        height: 811px;
         object-fit: cover;
         filter: brightness(80%);
     }

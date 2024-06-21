@@ -1,25 +1,26 @@
 <template>
-    <div id="menu">
-        <Toolbar></Toolbar>
+    <div>
+        <div id="menu">
+            <Toolbar></Toolbar>
 
-        <img class="menu_background" src="/src/assets/menu_background.jpg" alt="menu background">
-        
-        <div class="menu_content">
-            <div>
-                <Title>
-                    <template v-slot:titleEn> 
-                        <div class="dish_title_1"> Menu </div>
-                    </template>
-                    <template v-slot:titleZh> 
-                        <div class="dish_title_2"> 美味餐點 </div>
-                    </template>
-                </Title>
-            </div>
-            <div>
-                <img class="menu_img" src="/src/assets/menu.png" alt="menu">
+            <img class="menu_background" src="/src/assets/menu_background.jpg" alt="menu background">
+            
+            <div class="menu_content">
+                <div>
+                    <Title>
+                        <template v-slot:titleEn> 
+                            <div class="dish_title_1"> Menu </div>
+                        </template>
+                        <template v-slot:titleZh> 
+                            <div class="dish_title_2"> 美味餐點 </div>
+                        </template>
+                    </Title>
+                </div>
+                <div>
+                    <img class="menu_img" src="/src/assets/menu.png" alt="menu">
+                </div>
             </div>
         </div>
-
         <Footer></Footer>
     </div>
 </template>
@@ -37,7 +38,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 20px); //因為footer高度大約為 20px
     height: 960px;
     background-color: rgb(36, 36, 36);
 
@@ -62,16 +63,12 @@
     }
 
     .dish_title_2 {
-        color: #1c1c1c;
+        color: #fffbc9;
+        text-shadow: 1px 1px 5px rgb(43, 43, 43);
     }
 
     .menu_img{
         width: 800px;
-    }
-
-    Footer {
-        position: absolute;
-        bottom: 0;
     }
 }
 </style>
