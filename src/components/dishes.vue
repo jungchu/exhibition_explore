@@ -2,14 +2,13 @@
     <div id="dishes">
         <Title>
             <template v-slot:titleEn> 
-                <div class="dish_title_1"> Top 3 </div>
+                <div class="dish_title_1"> New </div>
             </template>
             <template v-slot:titleZh> 
-                <div class="dish_title_2"> 熱門菜餚 </div>
+                <div class="dish_title_2"> 新品上市 </div>
             </template>
         </Title>
 
-        <!-- 菜餚品項 -->
         <div>
             <div 
                 v-for="(dish, dishIndex) in dish_list"
@@ -22,8 +21,8 @@
                 >
                     <img class="dish_image" :src="dish.image" :alt="'dish ' + dishIndex" loading='lazy'>
                     <div class="dish_description">
-                        <div>{{ dish.name }}</div>
-                        <div>{{ dish.description }}</div>
+                        <div class="dish_name">{{ dish.name }}</div>
+                        <div class="dish_des">{{ dish.description }}</div>
                     </div>
                 </div>
 
@@ -33,8 +32,8 @@
                     class="dish_item_2"
                 >
                     <div class="dish_description">
-                        <div>{{ dish.name }}</div>
-                        <div>{{ dish.description }}</div>
+                        <div class="dish_name">{{ dish.name }}</div>
+                        <div class="dish_des">{{ dish.description }}</div>
                     </div>
                     <img class="dish_image" :src="dish.image" :alt="'dish ' + dishIndex" loading='lazy'>
                 </div>
@@ -144,8 +143,20 @@ const scrollEvent = () => {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 200px;
+        width: 250px;
         margin: 0 25px;
+
+        .dish_name {
+            margin-bottom: 10px;
+            color: rgb(95, 95, 95);
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .dish_des {
+            color: rgb(94, 69, 33);
+            line-height: 28px;
+            text-align: center
+        }
     }
 }
 
