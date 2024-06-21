@@ -59,7 +59,10 @@
                     fullscreen
                 >
                     <v-card>
-                        <div id="infoContainer">
+                        <v-form 
+                            id="infoContainer"
+                            ref="infoForm"
+                        >
                             <img class="info_image" src="/src/assets/restaurant_1.jpg" alt="info image">
 
                             <v-icon 
@@ -152,7 +155,7 @@
                                     />
                                 </div>
                             </div>
-                        </div>
+                        </v-form>
                     </v-card>
                 </v-dialog>
             </div>
@@ -256,14 +259,21 @@ import { get_country_code_ajax } from '../js/utils/data';
         bookingInfo.value.time = time;
         openDialog();
     }
+
     const cancel = () => {
         closeDialog();
         bookingInfoInit(); // 初始化 bookingInfo 中的聯絡人資訊
     };
+    const infoForm = ref(); // 用以取得 ref='infoForm' 的 element
     const confirm = () => {
-        setLocalStorage();
-        bookingInfoInit(); // 初始化 bookingInfo 中的聯絡人資訊
-        closeDialog();
+        infoForm.value?.validate().then(valid => {
+            const isValid = valid.valid;
+            if (isValid) {
+                setLocalStorage();
+                bookingInfoInit(); // 初始化 bookingInfo 中的聯絡人資訊
+                closeDialog();
+            }
+        });
     };
 
     const bookingInfoInit = () => {
@@ -317,7 +327,7 @@ import { get_country_code_ajax } from '../js/utils/data';
         counterTextarea: value => (!value || value.length <= 150) || '輸入文字請少於150個',
         email: value => {
             const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            return pattern.test(value) || 'e-mail 格式有誤'
+            return (!value || pattern.test(value))|| 'e-mail 格式有誤'
         },
         phone: value => {
             const pattern = /^09\d{2}-?\d{3}-?\d{3}$|^9\d{2}-?\d{3}-?\d{3}$/
