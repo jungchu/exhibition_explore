@@ -2,21 +2,25 @@ import { defineStore } from 'pinia'
 
 export const useBookingStore = defineStore('booking', {
     state: () => ({
-        adultNumber: 1,
-        childNumber:0,
-        isAdmin: true,
+        bookingInfo: {
+            adultNumber: 2,
+            childNumber: 0,
+            time: '12:00',
+            name: '',
+            countryCode: '+886',
+            phone: '',
+            email: '',
+            note: '',
+            isSetLocalStorage: false
+        },
     }),
 
     getters: {
     },
 
     actions: {
-        setAdultNumber(newAdultNumber) {
-            this.adultNumber = newAdultNumber;
-        },
-
-        setChildNumber(newChildNumber) {
-            this.childNumber = newChildNumber;
+        setBookingInfo(newBookingInfo) {
+            this.bookingInfo = newBookingInfo;
         },
     },
 })

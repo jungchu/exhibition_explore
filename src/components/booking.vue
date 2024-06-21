@@ -181,8 +181,7 @@ import { get_country_code_ajax } from '../js/utils/data';
     });
 
     const bookStore = useBookingStore();
-    const setAdultNumber = bookStore.setAdultNumber;
-    const setChildNumber = bookStore.setChildNumber;
+    const setBookingInfo = bookStore.setBookingInfo;
 
     let bookingInfo = ref({
         adultNumber: 2,
@@ -340,13 +339,9 @@ import { get_country_code_ajax } from '../js/utils/data';
         phoneLength: value => (9 <= value.length && value.length <= 10) || '手機格式有誤',
     };
 
-    watch(() => bookingInfo.value.adultNumber, (newValue) => {
-        setAdultNumber(newValue);
-    });
-
-    watch(() => bookingInfo.value.childNumber, (newValue) => {
-        setChildNumber(newValue);
-    });
+    watch(bookingInfo.value, (newValue) => {
+        setBookingInfo(newValue);
+    })
 
     watch(dateFromPicker, () => {
         toggleDatePicker();
