@@ -2,6 +2,7 @@
   "name": "exhibition_explore",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://jungchu.github.io/restaurant_practice",
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
@@ -12,6 +13,7 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "gh-pages": "^6.1.1",
     "moment": "^2.30.1",
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
