@@ -6,7 +6,7 @@ import Booking from "/src/components/booking.vue";
 import Contact from "/src/components/contact.vue";
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         { path: '/', component: Home },
         { path: '/about', component: About },

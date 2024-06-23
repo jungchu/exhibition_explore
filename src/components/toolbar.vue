@@ -36,7 +36,7 @@ const goToPage = (btn_name) => {
         '聯絡我們': 'contact',
     };
 
-    window.open(`http://localhost:5173/${pageMap[btn_name]}`, '_self');
+    window.open(`/${pageMap[btn_name]}`, '_self');
 };
 </script>
 <style lang='scss' scoped>
