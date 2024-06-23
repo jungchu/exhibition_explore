@@ -1,17 +1,17 @@
 [
     {
         "name": "草莓焦糖鬆餅",
-        "image": "./src/assets/dish_1.jpg",
+        "image": "/src/assets/dish_1.jpg",
         "description": "軟綿鬆餅搭配濃郁焦糖，甜美草莓點綴，口感豐富，香氣四溢，令人難以抗拒的甜蜜享受"
     },
     {
         "name": "蔓越莓優格碗",
-        "image": "./src/assets/dish_2.jpg",
+        "image": "/src/assets/dish_2.jpg",
         "description": "濃郁優格融合酸甜蔓越莓，新鮮水果和酥脆堅果點綴，清新爽口，營養豐富，是完美的健康選擇"
     },
     {
         "name": "凱薩沙拉",
-        "image": "./src/assets/dish_3.jpg",
+        "image": "/src/assets/dish_3.jpg",
         "description": "新鮮脆嫩的羅馬生菜，搭配香濃的凱薩醬，酥脆的麵包丁，撒上濃郁帕瑪森起司和多汁雞胸肉，口感豐富，令人回味無窮"
     }
 ]
