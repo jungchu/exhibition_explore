@@ -11,7 +11,7 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import '@mdi/font/css/materialdesignicons.css'
 
 // Vue router
-import router from './js/router/index'
+import router from './router/index'
 
 const app = createApp(App);
 
